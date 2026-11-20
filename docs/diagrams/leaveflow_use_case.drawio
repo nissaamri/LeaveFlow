@@ -1,0 +1,219 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="lLBYdYVPWsWf3kMLO9YZ">
+    <mxGraphModel dx="4991" dy="1196" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="WupihWJRD3mGCKni126U-30" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="1204" width="783" x="-2286" y="79" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-31" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;labelPerimeter=1;" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;Employee&lt;/font&gt;" vertex="1">
+          <mxGeometry height="96" width="54" x="-2527" y="363" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-33" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Log In&lt;/font&gt;" vertex="1">
+          <mxGeometry height="81" width="141" x="-1946" y="178" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-37" edge="1" parent="1" source="WupihWJRD3mGCKni126U-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;endArrow=none;endFill=0;curved=1;curveGeometry=1;entryX=0.5;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="WupihWJRD3mGCKni126U-31">
+          <mxGeometry relative="1" x="0.1417" as="geometry">
+            <Array as="points">
+              <mxPoint x="-2156" y="267.8" />
+              <mxPoint x="-2366.1" y="267.8" />
+              <mxPoint x="-2366.1" y="411" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-35" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;View Leave Balance&lt;/font&gt;" vertex="1">
+          <mxGeometry height="81" width="141" x="-2156" y="231" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-36" edge="1" parent="1" source="WupihWJRD3mGCKni126U-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;defaultLabelBackgroundColor=page;labelPadding=0 4;endArrow=none;endFill=0;curved=1;curveGeometry=1;" target="WupihWJRD3mGCKni126U-31">
+          <mxGeometry relative="1" x="0.0063" as="geometry">
+            <Array as="points">
+              <mxPoint x="-2402.7" y="217.5" />
+              <mxPoint x="-2402.7" y="411" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-39" edge="1" parent="1" source="WupihWJRD3mGCKni126U-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;endArrow=none;endFill=0;curved=1;curveGeometry=1;" target="WupihWJRD3mGCKni126U-31">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-2334.1" y="378.5" />
+              <mxPoint x="-2334.1" y="411" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-38" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Submit Leave Application&lt;/font&gt;" vertex="1">
+          <mxGeometry height="81" width="141" x="-2156" y="338" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-41" edge="1" parent="1" source="WupihWJRD3mGCKni126U-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;curved=1;curveGeometry=1;endArrow=none;endFill=0;" target="WupihWJRD3mGCKni126U-31">
+          <mxGeometry relative="1" x="-0.0034" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-40" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;View Application Status&lt;/font&gt;" vertex="1">
+          <mxGeometry height="81" width="141" x="-2156" y="438" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-42" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;View Leave History&lt;/font&gt;" vertex="1">
+          <mxGeometry height="81" width="141" x="-2156" y="538" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-43" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Cancel Pending Application&lt;/font&gt;" vertex="1">
+          <mxGeometry height="81" width="141" x="-2156" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-44" edge="1" parent="1" source="WupihWJRD3mGCKni126U-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;defaultLabelBackgroundColor=page;labelPadding=0 4;endArrow=none;endFill=0;curved=1;curveGeometry=1;" target="WupihWJRD3mGCKni126U-31">
+          <mxGeometry relative="1" x="0.001" as="geometry">
+            <Array as="points">
+              <mxPoint x="-2366.1" y="578.5" />
+              <mxPoint x="-2366.1" y="411" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-45" edge="1" parent="1" source="WupihWJRD3mGCKni126U-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;defaultLabelBackgroundColor=page;labelPadding=0 4;endArrow=none;endFill=0;curved=1;curveGeometry=1;" target="WupihWJRD3mGCKni126U-31">
+          <mxGeometry relative="1" x="0.0038" as="geometry">
+            <Array as="points">
+              <mxPoint x="-2156" y="651" />
+              <mxPoint x="-2385" y="651" />
+              <mxPoint x="-2385" y="411" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-51" edge="1" parent="1" source="WupihWJRD3mGCKni126U-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;endArrow=none;endFill=0;curved=1;curveGeometry=1;entryX=0.5;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="WupihWJRD3mGCKni126U-50">
+          <mxGeometry relative="1" x="-0.028" as="geometry">
+            <Array as="points">
+              <mxPoint x="-2408.1" y="894.5" />
+              <mxPoint x="-2408.1" y="1043" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-46" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;View Assigned Requests&lt;/font&gt;" vertex="1">
+          <mxGeometry height="81" width="141" x="-2156" y="854" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-52" edge="1" parent="1" source="WupihWJRD3mGCKni126U-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;endArrow=none;endFill=0;curved=1;curveGeometry=1;entryX=0.5;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="WupihWJRD3mGCKni126U-50">
+          <mxGeometry relative="1" x="-0.073" as="geometry">
+            <Array as="points">
+              <mxPoint x="-2354.8" y="996.5" />
+              <mxPoint x="-2354.8" y="1043" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-47" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Approve Leave&lt;/font&gt;" vertex="1">
+          <mxGeometry height="81" width="141" x="-2156" y="956" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-48" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Reject Leave&lt;/font&gt;" vertex="1">
+          <mxGeometry height="81" width="141" x="-2156" y="1055" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-49" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;View Team Calender&lt;/font&gt;" vertex="1">
+          <mxGeometry height="81" width="141" x="-2156" y="1154" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-80" edge="1" parent="1" source="WupihWJRD3mGCKni126U-50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;curved=1;curveGeometry=1;endArrow=none;endFill=0;" target="WupihWJRD3mGCKni126U-33">
+          <mxGeometry relative="1" x="0.0004" as="geometry">
+            <Array as="points">
+              <mxPoint x="-2432" y="1043" />
+              <mxPoint x="-2432" y="772.4" />
+              <mxPoint x="-1875.5" y="772.4" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-50" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;labelPerimeter=1;" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;Manager&lt;/font&gt;" vertex="1">
+          <mxGeometry height="96" width="54" x="-2527" y="995" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-53" edge="1" parent="1" source="WupihWJRD3mGCKni126U-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;defaultLabelBackgroundColor=page;labelPadding=0 4;endArrow=none;endFill=0;curved=1;curveGeometry=1;" target="WupihWJRD3mGCKni126U-50">
+          <mxGeometry relative="1" x="0.0017" as="geometry">
+            <Array as="points">
+              <mxPoint x="-2398.8" y="1095.5" />
+              <mxPoint x="-2398.8" y="1043" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-54" edge="1" parent="1" source="WupihWJRD3mGCKni126U-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;defaultLabelBackgroundColor=page;labelPadding=0 4;curved=1;curveGeometry=1;endArrow=none;endFill=0;" target="WupihWJRD3mGCKni126U-50">
+          <mxGeometry relative="1" x="-0.0123" as="geometry">
+            <Array as="points">
+              <mxPoint x="-2418.8" y="1194.5" />
+              <mxPoint x="-2418.8" y="1043" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-68" edge="1" parent="1" source="WupihWJRD3mGCKni126U-55" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;endArrow=none;endFill=0;edgeStyle=orthogonalEdgeStyle;curved=1;curveGeometry=1;" target="WupihWJRD3mGCKni126U-61">
+          <mxGeometry relative="1" x="-0.0318" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-69" edge="1" parent="1" source="WupihWJRD3mGCKni126U-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;curved=1;curveGeometry=1;endArrow=none;endFill=0;" target="WupihWJRD3mGCKni126U-63">
+          <mxGeometry relative="1" x="-0.0022" as="geometry">
+            <Array as="points">
+              <mxPoint x="-1421.6" y="789.5" />
+              <mxPoint x="-1421.6" y="887.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-72" edge="1" parent="1" source="WupihWJRD3mGCKni126U-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;curved=1;curveGeometry=1;endArrow=none;endFill=0;" target="WupihWJRD3mGCKni126U-64">
+          <mxGeometry relative="1" x="-0.0019" as="geometry">
+            <Array as="points">
+              <mxPoint x="-1417.1" y="789.5" />
+              <mxPoint x="-1417.1" y="988.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-73" edge="1" parent="1" source="WupihWJRD3mGCKni126U-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;curved=1;curveGeometry=1;endArrow=none;endFill=0;" target="WupihWJRD3mGCKni126U-66">
+          <mxGeometry relative="1" x="-0.0094" as="geometry">
+            <Array as="points">
+              <mxPoint x="-1373.9" y="789.5" />
+              <mxPoint x="-1373.9" y="1095.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-75" edge="1" parent="1" source="WupihWJRD3mGCKni126U-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;curved=1;curveGeometry=1;endArrow=none;endFill=0;" target="WupihWJRD3mGCKni126U-33">
+          <mxGeometry relative="1" x="0.0004" as="geometry">
+            <Array as="points">
+              <mxPoint x="-1414.6" y="789.5" />
+              <mxPoint x="-1414.6" y="223.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-55" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;labelPerimeter=1;" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;HR Admin&lt;/font&gt;" vertex="1">
+          <mxGeometry height="96" width="54" x="-1343" y="741.5" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-60" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Manage Employee Records&lt;/font&gt;" vertex="1">
+          <mxGeometry height="81" width="141" x="-1805" y="438" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-61" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Manage Leave Types &amp;amp; Policies&lt;/font&gt;" vertex="1">
+          <mxGeometry height="81" width="141" x="-1805" y="544" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-62" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Manage Leave Entitlements&lt;/font&gt;" vertex="1">
+          <mxGeometry height="81" width="141" x="-1805" y="649" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-63" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;View Organisation Leave Records&lt;/font&gt;" vertex="1">
+          <mxGeometry height="81" width="141" x="-1800" y="847" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-64" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;View Audit Logs&lt;/font&gt;" vertex="1">
+          <mxGeometry height="81" width="141" x="-1805" y="948" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-65" edge="1" parent="1" source="WupihWJRD3mGCKni126U-62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;defaultLabelBackgroundColor=page;labelPadding=0 4;curved=1;curveGeometry=1;endArrow=none;endFill=0;" target="WupihWJRD3mGCKni126U-55">
+          <mxGeometry relative="1" x="-0.0005" as="geometry">
+            <Array as="points">
+              <mxPoint x="-1546" y="689.5" />
+              <mxPoint x="-1546" y="789.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-66" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Generate Reports&lt;/font&gt;" vertex="1">
+          <mxGeometry height="81" width="141" x="-1805" y="1055" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-67" edge="1" parent="1" source="WupihWJRD3mGCKni126U-60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;defaultLabelBackgroundColor=page;labelPadding=0 4;curved=1;curveGeometry=1;endArrow=none;endFill=0;" target="WupihWJRD3mGCKni126U-55">
+          <mxGeometry relative="1" x="-0.0294" as="geometry">
+            <Array as="points">
+              <mxPoint x="-1440.4" y="478.5" />
+              <mxPoint x="-1440.4" y="789.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-79" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;strong&gt;&lt;font style=&quot;font-size: 24px;&quot;&gt;LeaveFlow – Employee Leave &amp;amp; Workforce Management System&lt;/font&gt;&lt;/strong&gt;" vertex="1">
+          <mxGeometry height="30" width="741" x="-2265" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-81" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b&gt;EMPLOYEE FUNCTIONS&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="254" x="-2212.5" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-82" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;span style=&quot;font-size: 20px;&quot;&gt;&lt;b&gt;MANAGER FUNCTIONS&lt;/b&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="30" width="254" x="-2212.5" y="807.5" as="geometry" />
+        </mxCell>
+        <mxCell id="WupihWJRD3mGCKni126U-83" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;span style=&quot;font-size: 20px;&quot;&gt;&lt;b&gt;HR ADMIN FUNCTIONS&lt;/b&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="30" width="254" x="-1856.5" y="389" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
