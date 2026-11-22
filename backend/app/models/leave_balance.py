@@ -1,4 +1,9 @@
-from sqlalchemy import ForeignKey, Integer, UniqueConstraint
+from sqlalchemy import (
+    ForeignKey,
+    Integer,
+    UniqueConstraint,
+    CheckConstraint
+)
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.core.base import Base
@@ -13,6 +18,18 @@ class LeaveBalance(Base):
             "leave_type_id",
             "year",
             name="uq_employee_leave_type_year"
+        ),
+        CheckConstraint(
+            "entitlement >= 0",
+            name="check_entitlement_non_negative"
+        ),
+        CheckConstraint(
+            "used_days >= 0",
+            name="check_used_days_non_negative"
+        ),
+        CheckConstraint(
+            "used_days <= entitlement",
+            name="check_used_days_within_entitlement"
         ),
     )
 
