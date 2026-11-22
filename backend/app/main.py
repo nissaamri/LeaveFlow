@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from app.routes.departments import router as departments_router
 from app.routes.leave_types import router as leave_types_router
 from app.routes.employees import router as employees_router
+from app.routes.leave_applications import router as leave_applications_router
 
 app = FastAPI(
     title="LeaveFlow API",
@@ -11,6 +12,7 @@ app = FastAPI(
 app.include_router(departments_router)
 app.include_router(leave_types_router)
 app.include_router(employees_router)
+app.include_router(leave_applications_router)
 
 @app.get("/")
 def home():
