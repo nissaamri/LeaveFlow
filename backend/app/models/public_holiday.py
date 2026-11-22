@@ -1,6 +1,6 @@
 from datetime import date
 
-from sqlalchemy import Date, Integer, String
+from sqlalchemy import Date, Integer, String, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.core.base import Base
@@ -8,6 +8,14 @@ from app.core.base import Base
 
 class PublicHoliday(Base):
     __tablename__ = "public_holidays"
+
+    __table_args__ = (
+        UniqueConstraint(
+            "holiday_date",
+            "location",
+            name="uq_public_holiday_date_location"
+        ),
+    )
 
     holiday_id: Mapped[int] = mapped_column(
         Integer,
