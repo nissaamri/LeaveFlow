@@ -1,4 +1,4 @@
-from sqlalchemy import Boolean, Integer, String
+from sqlalchemy import Boolean, Integer, String, text
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.core.base import Base
@@ -22,11 +22,13 @@ class LeaveType(Base):
     requires_approval: Mapped[bool] = mapped_column(
         Boolean,
         default=True,
+        server_default=text("true"),
         nullable=False
     )
 
     is_active: Mapped[bool] = mapped_column(
         Boolean,
         default=True,
+        server_default=text("true"),
         nullable=False
     )
