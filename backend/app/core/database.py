@@ -1,0 +1,33 @@
+from sqlalchemy import create_engine
+from sqlalchemy.engine import URL
+from sqlalchemy.orm import declarative_base, sessionmaker
+
+from app.core.config import settings
+
+Base = declarative_base()
+
+DATABASE_URL = URL.create(
+    drivername="postgresql+psycopg",
+    username=settings.DB_USER,
+    password=settings.DB_PASSWORD,
+    host=settings.DB_HOST,
+    port=int(settings.DB_PORT or 5432),
+    database=settings.DB_NAME,
+)
+
+engine = create_engine(DATABASE_URL)
+
+SessionLocal = sessionmaker(
+    autocommit=False,
+    autoflush=False,
+    bind=engine
+)
+
+
+def get_db():
+    db = SessionLocal()
+
+    try:
+        yield db
+    finally:
+        db.close()
