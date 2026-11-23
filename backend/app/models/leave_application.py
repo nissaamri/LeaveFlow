@@ -1,4 +1,5 @@
-from datetime import date, datetime
+
+from datetime import date, datetime, timezone
 
 from sqlalchemy import (
     CheckConstraint,
@@ -7,7 +8,8 @@ from sqlalchemy import (
     ForeignKey,
     Integer,
     String,
-    Text
+    Text,
+    text
 )
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -70,11 +72,13 @@ class LeaveApplication(Base):
     status: Mapped[str] = mapped_column(
         String(20),
         default="pending",
+        server_default=text("'pending'"),
         nullable=False
     )
 
     submitted_at: Mapped[datetime] = mapped_column(
-        DateTime,
-        default=datetime.utcnow,
+        DateTime(timezone=True),
+        default=lambda: datetime.now(timezone.utc),
+        server_default=text("CURRENT_TIMESTAMP"),
         nullable=False
     )
