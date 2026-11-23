@@ -1,6 +1,7 @@
-from datetime import datetime
 
-from sqlalchemy import DateTime, ForeignKey, Integer, String
+from datetime import datetime, timezone
+
+from sqlalchemy import DateTime, ForeignKey, Integer, String, text
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.core.base import Base
@@ -36,7 +37,8 @@ class AuditLog(Base):
     )
 
     created_at: Mapped[datetime] = mapped_column(
-        DateTime,
-        default=datetime.utcnow,
+        DateTime(timezone=True),
+        default=lambda: datetime.now(timezone.utc),
+        server_default=text("CURRENT_TIMESTAMP"),
         nullable=False
     )
