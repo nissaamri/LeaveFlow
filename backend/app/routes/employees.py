@@ -1,10 +1,16 @@
+
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from app.core.database import get_db
+from app.core.security import hash_password, require_roles
 from app.models.employee import Employee
-from app.schemas.employee import EmployeeCreate, EmployeeResponse
-from app.core.security import hash_password
+from app.schemas.employee import (
+    EmployeeCreate,
+    EmployeeUpdate,
+    EmployeeResponse
+)
+
 
 router = APIRouter(
     prefix="/employees",
@@ -12,8 +18,15 @@ router = APIRouter(
 )
 
 
+# Only HR administrators can manage employee records.
+
+
 # 1. Create an employee
-@router.post("/", response_model=EmployeeResponse)
+@router.post(
+    "/",
+    response_model=EmployeeResponse,
+    dependencies=[Depends(require_roles("hr_admin"))]
+)
 def create_employee(
     employee: EmployeeCreate,
     db: Session = Depends(get_db)
@@ -45,7 +58,11 @@ def create_employee(
 
 
 # 2. Get all employees
-@router.get("/", response_model=list[EmployeeResponse])
+@router.get(
+    "/",
+    response_model=list[EmployeeResponse],
+    dependencies=[Depends(require_roles("hr_admin"))]
+)
 def get_employees(db: Session = Depends(get_db)):
     return db.query(Employee).order_by(
         Employee.employee_id
@@ -53,7 +70,11 @@ def get_employees(db: Session = Depends(get_db)):
 
 
 # 3. Get one employee by ID
-@router.get("/{employee_id}", response_model=EmployeeResponse)
+@router.get(
+    "/{employee_id}",
+    response_model=EmployeeResponse,
+    dependencies=[Depends(require_roles("hr_admin"))]
+)
 def get_employee(
     employee_id: int,
     db: Session = Depends(get_db)
@@ -72,10 +93,14 @@ def get_employee(
 
 
 # 4. Update an employee
-@router.put("/{employee_id}", response_model=EmployeeResponse)
+@router.put(
+    "/{employee_id}",
+    response_model=EmployeeResponse,
+    dependencies=[Depends(require_roles("hr_admin"))]
+)
 def update_employee(
     employee_id: int,
-    employee_data: EmployeeCreate,
+    employee_data: EmployeeUpdate,
     db: Session = Depends(get_db)
 ):
     employee = db.query(Employee).filter(
@@ -101,10 +126,15 @@ def update_employee(
 
     employee.full_name = employee_data.full_name
     employee.email = employee_data.email
-    employee.password_hash = employee_data.password
     employee.role = employee_data.role
     employee.department_id = employee_data.department_id
     employee.manager_id = employee_data.manager_id
+
+    # Only change the password when a new one is provided.
+    if employee_data.password:
+        employee.password_hash = hash_password(
+            employee_data.password
+        )
 
     db.commit()
     db.refresh(employee)
@@ -113,7 +143,10 @@ def update_employee(
 
 
 # 5. Delete an employee
-@router.delete("/{employee_id}")
+@router.delete(
+    "/{employee_id}",
+    dependencies=[Depends(require_roles("hr_admin"))]
+)
 def delete_employee(
     employee_id: int,
     db: Session = Depends(get_db)

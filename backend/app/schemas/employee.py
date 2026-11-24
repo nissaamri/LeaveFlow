@@ -1,4 +1,3 @@
-
 from typing import Literal
 
 from pydantic import (
@@ -17,6 +16,25 @@ class EmployeeCreate(BaseModel):
     full_name: str
     email: EmailStr
     password: str = Field(min_length=8)
+    role: EmployeeRole
+    department_id: int = Field(gt=0)
+    manager_id: int | None = Field(default=None, gt=0)
+
+    @field_validator("full_name")
+    @classmethod
+    def validate_full_name(cls, value: str):
+        value = value.strip()
+
+        if not value:
+            raise ValueError("Full name cannot be empty")
+
+        return value
+
+
+class EmployeeUpdate(BaseModel):
+    full_name: str
+    email: EmailStr
+    password: str | None = Field(default=None, min_length=8)
     role: EmployeeRole
     department_id: int = Field(gt=0)
     manager_id: int | None = Field(default=None, gt=0)

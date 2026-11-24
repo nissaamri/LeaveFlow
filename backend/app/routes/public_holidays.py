@@ -1,9 +1,12 @@
+
 from datetime import date
 
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from app.core.database import get_db
+from app.core.security import get_current_employee, require_roles
+from app.models.employee import Employee
 from app.models.public_holiday import PublicHoliday
 from app.schemas.public_holiday import (
     PublicHolidayCreate,
@@ -18,7 +21,12 @@ router = APIRouter(
 
 
 # 1. Create a public holiday
-@router.post("/", response_model=PublicHolidayResponse)
+# HR Admin only
+@router.post(
+    "/",
+    response_model=PublicHolidayResponse,
+    dependencies=[Depends(require_roles("hr_admin"))]
+)
 def create_public_holiday(
     holiday: PublicHolidayCreate,
     db: Session = Depends(get_db)
@@ -48,11 +56,16 @@ def create_public_holiday(
 
 
 # 2. Get all public holidays
-@router.get("/", response_model=list[PublicHolidayResponse])
+# All authenticated users
+@router.get(
+    "/",
+    response_model=list[PublicHolidayResponse]
+)
 def get_public_holidays(
     location: str | None = None,
     year: int | None = None,
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_employee: Employee = Depends(get_current_employee)
 ):
     query = db.query(PublicHoliday)
 
@@ -73,10 +86,15 @@ def get_public_holidays(
 
 
 # 3. Get one public holiday by ID
-@router.get("/{holiday_id}", response_model=PublicHolidayResponse)
+# All authenticated users
+@router.get(
+    "/{holiday_id}",
+    response_model=PublicHolidayResponse
+)
 def get_public_holiday(
     holiday_id: int,
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_employee: Employee = Depends(get_current_employee)
 ):
     holiday = db.query(PublicHoliday).filter(
         PublicHoliday.holiday_id == holiday_id
@@ -92,7 +110,12 @@ def get_public_holiday(
 
 
 # 4. Update a public holiday
-@router.put("/{holiday_id}", response_model=PublicHolidayResponse)
+# HR Admin only
+@router.put(
+    "/{holiday_id}",
+    response_model=PublicHolidayResponse,
+    dependencies=[Depends(require_roles("hr_admin"))]
+)
 def update_public_holiday(
     holiday_id: int,
     holiday_data: PublicHolidayCreate,
@@ -131,7 +154,11 @@ def update_public_holiday(
 
 
 # 5. Delete a public holiday
-@router.delete("/{holiday_id}")
+# HR Admin only
+@router.delete(
+    "/{holiday_id}",
+    dependencies=[Depends(require_roles("hr_admin"))]
+)
 def delete_public_holiday(
     holiday_id: int,
     db: Session = Depends(get_db)

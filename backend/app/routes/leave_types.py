@@ -2,6 +2,8 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from app.core.database import get_db
+from app.core.security import get_current_employee, require_roles
+from app.models.employee import Employee
 from app.models.leave_type import LeaveType
 from app.schemas.leave_type import LeaveTypeCreate, LeaveTypeResponse
 
@@ -13,7 +15,12 @@ router = APIRouter(
 
 
 # 1. Create a leave type
-@router.post("/", response_model=LeaveTypeResponse)
+# HR Admin only
+@router.post(
+    "/",
+    response_model=LeaveTypeResponse,
+    dependencies=[Depends(require_roles("hr_admin"))]
+)
 def create_leave_type(
     leave_type: LeaveTypeCreate,
     db: Session = Depends(get_db)
@@ -42,18 +49,30 @@ def create_leave_type(
 
 
 # 2. Get all leave types
-@router.get("/", response_model=list[LeaveTypeResponse])
-def get_leave_types(db: Session = Depends(get_db)):
+# All authenticated users
+@router.get(
+    "/",
+    response_model=list[LeaveTypeResponse]
+)
+def get_leave_types(
+    db: Session = Depends(get_db),
+    current_employee: Employee = Depends(get_current_employee)
+):
     return db.query(LeaveType).order_by(
         LeaveType.leave_type_id
     ).all()
 
 
 # 3. Get one leave type by ID
-@router.get("/{leave_type_id}", response_model=LeaveTypeResponse)
+# All authenticated users
+@router.get(
+    "/{leave_type_id}",
+    response_model=LeaveTypeResponse
+)
 def get_leave_type(
     leave_type_id: int,
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_employee: Employee = Depends(get_current_employee)
 ):
     leave_type = db.query(LeaveType).filter(
         LeaveType.leave_type_id == leave_type_id
@@ -69,7 +88,12 @@ def get_leave_type(
 
 
 # 4. Update a leave type
-@router.put("/{leave_type_id}", response_model=LeaveTypeResponse)
+# HR Admin only
+@router.put(
+    "/{leave_type_id}",
+    response_model=LeaveTypeResponse,
+    dependencies=[Depends(require_roles("hr_admin"))]
+)
 def update_leave_type(
     leave_type_id: int,
     leave_type_data: LeaveTypeCreate,
@@ -107,7 +131,11 @@ def update_leave_type(
 
 
 # 5. Delete a leave type
-@router.delete("/{leave_type_id}")
+# HR Admin only
+@router.delete(
+    "/{leave_type_id}",
+    dependencies=[Depends(require_roles("hr_admin"))]
+)
 def delete_leave_type(
     leave_type_id: int,
     db: Session = Depends(get_db)

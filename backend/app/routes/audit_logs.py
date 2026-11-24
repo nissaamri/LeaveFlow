@@ -1,7 +1,9 @@
+
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from app.core.database import get_db
+from app.core.security import require_roles, get_current_employee
 from app.models.audit_log import AuditLog
 from app.models.employee import Employee
 from app.schemas.audit_log import AuditLogResponse
@@ -13,27 +15,36 @@ router = APIRouter(
 )
 
 
-# 1. Create an audit log
-@router.post("/", response_model=AuditLogResponse)
+# 1. Create a manual audit log - HR Admin only
+@router.post(
+    "/",
+    response_model=AuditLogResponse,
+    dependencies=[Depends(require_roles("hr_admin"))]
+)
 def create_audit_log(
-    actor_id: int,
     action: str,
     entity_type: str,
     entity_id: int,
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_employee: Employee = Depends(get_current_employee)
 ):
-    actor = db.query(Employee).filter(
-        Employee.employee_id == actor_id
-    ).first()
+    action = action.strip()
+    entity_type = entity_type.strip()
 
-    if not actor:
+    if not action or not entity_type:
         raise HTTPException(
-            status_code=404,
-            detail="Employee not found"
+            status_code=400,
+            detail="Action and entity type cannot be empty"
+        )
+
+    if entity_id <= 0:
+        raise HTTPException(
+            status_code=400,
+            detail="Entity ID must be greater than zero"
         )
 
     new_log = AuditLog(
-        actor_id=actor_id,
+        actor_id=current_employee.employee_id,
         action=action,
         entity_type=entity_type,
         entity_id=entity_id
@@ -46,11 +57,16 @@ def create_audit_log(
     return new_log
 
 
-# 2. Get all audit logs
-@router.get("/", response_model=list[AuditLogResponse])
+# 2. Get all audit logs, newest first - HR Admin only
+@router.get(
+    "/",
+    response_model=list[AuditLogResponse],
+    dependencies=[Depends(require_roles("hr_admin"))]
+)
 def get_audit_logs(
     actor_id: int | None = None,
     action: str | None = None,
+    entity_type: str | None = None,
     db: Session = Depends(get_db)
 ):
     query = db.query(AuditLog)
@@ -62,16 +78,26 @@ def get_audit_logs(
 
     if action:
         query = query.filter(
-            AuditLog.action.ilike(f"%{action}%")
+            AuditLog.action.ilike(f"%{action.strip()}%")
+        )
+
+    if entity_type:
+        query = query.filter(
+            AuditLog.entity_type.ilike(f"%{entity_type.strip()}%")
         )
 
     return query.order_by(
-        AuditLog.created_at.desc()
+        AuditLog.created_at.desc(),
+        AuditLog.audit_id.desc()
     ).all()
 
 
-# 3. Get one audit log by ID
-@router.get("/{audit_id}", response_model=AuditLogResponse)
+# 3. Get one audit log by ID - HR Admin only
+@router.get(
+    "/{audit_id}",
+    response_model=AuditLogResponse,
+    dependencies=[Depends(require_roles("hr_admin"))]
+)
 def get_audit_log(
     audit_id: int,
     db: Session = Depends(get_db)

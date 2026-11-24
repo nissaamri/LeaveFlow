@@ -1,7 +1,9 @@
+
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from app.core.database import get_db
+from app.core.security import get_current_employee, require_roles
 from app.models.employee import Employee
 from app.models.leave_type import LeaveType
 from app.models.leave_balance import LeaveBalance
@@ -17,8 +19,44 @@ router = APIRouter(
 )
 
 
-# 1. Create a leave balance
-@router.post("/", response_model=LeaveBalanceResponse)
+# Check whether an employee can view a particular leave balance
+def check_balance_access(
+    balance: LeaveBalance,
+    current_employee: Employee,
+    db: Session
+):
+    # HR Admin can access every balance
+    if current_employee.role == "hr_admin":
+        return
+
+    # Employees can access their own balances
+    if balance.employee_id == current_employee.employee_id:
+        return
+
+    # Managers can access balances belonging to direct reports
+    if current_employee.role == "manager":
+        balance_employee = db.query(Employee).filter(
+            Employee.employee_id == balance.employee_id
+        ).first()
+
+        if (
+            balance_employee
+            and balance_employee.manager_id == current_employee.employee_id
+        ):
+            return
+
+    raise HTTPException(
+        status_code=403,
+        detail="You do not have permission to access this leave balance"
+    )
+
+
+# 1. Create a leave balance - HR Admin only
+@router.post(
+    "/",
+    response_model=LeaveBalanceResponse,
+    dependencies=[Depends(require_roles("hr_admin"))]
+)
 def create_leave_balance(
     balance: LeaveBalanceCreate,
     db: Session = Depends(get_db)
@@ -84,17 +122,38 @@ def create_leave_balance(
 
 # 2. Get all leave balances
 @router.get("/", response_model=list[LeaveBalanceResponse])
-def get_leave_balances(db: Session = Depends(get_db)):
-    return db.query(LeaveBalance).order_by(
-        LeaveBalance.balance_id
-    ).all()
+def get_leave_balances(
+    db: Session = Depends(get_db),
+    current_employee: Employee = Depends(get_current_employee)
+):
+    query = db.query(LeaveBalance)
+
+    if current_employee.role == "hr_admin":
+        pass
+
+    elif current_employee.role == "manager":
+        query = query.join(
+            Employee,
+            LeaveBalance.employee_id == Employee.employee_id
+        ).filter(
+            (Employee.employee_id == current_employee.employee_id)
+            | (Employee.manager_id == current_employee.employee_id)
+        )
+
+    else:
+        query = query.filter(
+            LeaveBalance.employee_id == current_employee.employee_id
+        )
+
+    return query.order_by(LeaveBalance.balance_id).all()
 
 
 # 3. Get one leave balance by ID
 @router.get("/{balance_id}", response_model=LeaveBalanceResponse)
 def get_leave_balance(
     balance_id: int,
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_employee: Employee = Depends(get_current_employee)
 ):
     balance = db.query(LeaveBalance).filter(
         LeaveBalance.balance_id == balance_id
@@ -106,11 +165,17 @@ def get_leave_balance(
             detail="Leave balance not found"
         )
 
+    check_balance_access(balance, current_employee, db)
+
     return balance
 
 
-# 4. Update a leave balance
-@router.put("/{balance_id}", response_model=LeaveBalanceResponse)
+# 4. Update a leave balance - HR Admin only
+@router.put(
+    "/{balance_id}",
+    response_model=LeaveBalanceResponse,
+    dependencies=[Depends(require_roles("hr_admin"))]
+)
 def update_leave_balance(
     balance_id: int,
     balance_data: LeaveBalanceCreate,
@@ -183,8 +248,11 @@ def update_leave_balance(
     return balance
 
 
-# 5. Delete a leave balance
-@router.delete("/{balance_id}")
+# 5. Delete a leave balance - HR Admin only
+@router.delete(
+    "/{balance_id}",
+    dependencies=[Depends(require_roles("hr_admin"))]
+)
 def delete_leave_balance(
     balance_id: int,
     db: Session = Depends(get_db)
