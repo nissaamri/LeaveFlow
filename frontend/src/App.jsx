@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import {
   LayoutDashboard, Users, CalendarDays, ClipboardList,
   CheckCircle2, Wallet, Building2, Calendar, FileText,
-  Settings, Search, Menu, X, ChevronDown,
+  Search, Bell, Menu, X, ChevronDown,
   ArrowUpRight, Clock3, CircleCheck, CircleX, Plus,
   MoreHorizontal, BriefcaseBusiness, CalendarCheck,
   AlertCircle, Pencil, Trash2, LoaderCircle, ChevronLeft, ChevronRight, RefreshCw, LogOut, Mail, LockKeyhole
@@ -31,10 +31,6 @@ const navigation = [
       { name: 'Public Holidays', icon: Calendar },
       { name: 'Audit Logs', icon: ClipboardList },
     ],
-  },
-  {
-    title: 'SYSTEM',
-    items: [{ name: 'Settings', icon: Settings }],
   },
 ]
 
@@ -1132,6 +1128,11 @@ function App() {
               <input type="text" placeholder="Search anything..." />
               <span>⌘ K</span>
             </div>
+
+            <button className="notification-button">
+              <Bell size={20} />
+              <span className="notification-dot" />
+            </button>
 
             <div className="topbar-divider" />
 
