@@ -1,76 +1,132 @@
 # LeaveFlow
-Employee Leave & Workforce Management System
+### Employee Leave Management System
+
+A web-based employee leave management platform designed to simplify leave applications, approval workflows, and workforce leave administration.
+
+---
 
 ## Project Overview
 
-LeaveFlow is an Employee Leave & Workforce Management System designed to simplify how organisations manage employee leave applications, approvals, and leave records.
+LeaveFlow provides a centralised platform for managing employee leave with three role-based user types:
 
-The system provides three different user roles:
+- **Employee:** Submit leave applications, view leave balances, and track application status.
+- **Manager:** Review employee leave requests and approve or reject applications.
+- **HR Administrator:** Manage employee records, departments, leave types, leave balances, and organisation-wide leave information.
 
-- **Employee:** Apply for leave and track application status.
-- **Manager:** Review and approve or reject leave applications.
-- **HR Administrator:** Manage employee records, leave policies, and overall leave administration.
+## Project Demo
 
-## Project Objectives
+🎬 **Video Demonstration:** [Watch LeaveFlow on YouTube](https://youtu.be/NsCg8v3QVdU)
 
-1. Digitise employee leave applications and approval workflows.
-2. Allow employees to monitor their leave balances and application status.
-3. Help managers review leave requests efficiently.
-4. Allow HR administrators to manage leave policies and employee records.
-5. Prevent overlapping leave requests and duplicate approvals.
-6. Maintain an audit trail of important leave-related activities.
-7. Provide a centralised view of workforce leave information.
+🌐 **Live Application:** [https://leaveflow-1.onrender.com/](https://leaveflow-1.onrender.com/)
+
+## Application Screenshots
+
+### Employee Dashboard
+![Employee Dashboard](screenshots/04_application_demo/employee-dashboard.png)
+
+### Leave Application
+![Leave Application](screenshots/04_application_demo/leave-application.png)
+
+### Manager Dashboard
+![Manager Dashboard](screenshots/04_application_demo/manager-dashboard.png)
+
+### HR Administrator Dashboard
+![HR Admin Dashboard](screenshots/04_application_demo/hr-admin-dashboard.png)
+
+### Employee Management
+![Employee Management](screenshots/04_application_demo/employee-management.png)
+
+## Key Features
+
+### Employee Module
+- Submit leave applications.
+- View available leave balances.
+- Track leave application status.
+- View personal leave records.
+
+### Manager Module
+- View employee leave requests.
+- Approve or reject leave applications.
+- Review team leave information.
+
+### HR Administrator Module
+- Manage employee records.
+- Manage departments.
+- Configure leave types.
+- Create and manage employee leave balances.
+- View organisation-wide leave information.
+- Access audit logs.
+
+### System Features
+- Role-based access control.
+- Centralised leave management.
+- Leave balance calculation.
+- Leave application and approval workflow.
+- Dashboard views based on user roles.
 
 ## Technology Stack
 
 | Component | Technology |
 |---|---|
-| Frontend | React + TypeScript |
+| Frontend | React + Vite |
 | Backend | Python + FastAPI |
 | Database | PostgreSQL |
+| Database Hosting | Neon |
+| Deployment | Render |
 | Version Control | Git + GitHub |
 | API Testing | Postman |
-| Containerisation | Docker |
 | Development Environment | Visual Studio Code |
 
-## Planned Features
+## System Workflow
 
-### Employee Module
-- Submit leave applications.
-- View leave balances.
-- Track application status.
-- View personal leave history.
+1. Employees log in and submit leave applications.
+2. Managers review pending applications.
+3. Managers approve or reject leave requests.
+4. Employees can view their application status and updated leave balances.
+5. HR administrators manage employee information and leave administration.
 
-### Manager Module
-- View team leave applications.
-- Approve or reject leave requests.
-- Check team leave schedules.
-- Monitor team availability.
+## Project Outcomes
 
-### HR Administrator Module
-- Manage employee records.
-- Configure leave types and policies.
-- Manage leave entitlements.
-- View organisation-wide leave records.
-- Access audit logs.
+The following results were obtained through individual timed comparisons between manual processes and LeaveFlow:
 
-### System Features
-- Role-based access control.
-- Leave balance calculation.
-- Leave overlap detection.
-- Multi-level approval workflow.
-- Public holiday integration.
-- Notifications for application updates.
+| Process | Manual Process | LeaveFlow |
+|---|---:|---:|
+| Leave application submission | 5–7 minutes | 34 seconds |
+| Leave approval | 2 minutes | 5 seconds |
+| Leave balance retrieval | 3 minutes | 3 seconds |
+
+*These results are based on individual timed tests and are illustrative rather than production-wide benchmarks.*
+
+## Project Structure
+
+```text
+LeaveFlow/
+├── frontend/
+├── backend/
+├── screenshots/
+│   ├── 01_environment_setup/
+│   ├── 02_system_design/
+│   ├── 03_backend/
+│   ├── 04_application_demo/
+│   ├── render_backend.png
+│   └── render_frontend.png
+└── README.md
+```
 
 ## Project Status
 
-<escape>🚧</escape> **Currently in Development**
+**Completed Portfolio Project**
 
-This project is being developed as a portfolio project to demonstrate practical skills in:
+This project demonstrates practical experience in:
 
-- Full-stack application development.
+- Full-stack web application development.
 - REST API development.
-- Relational database design.
+- Relational database integration.
 - Authentication and role-based access control.
-- Software testing and documentation.
-- Version control using Git and GitHub.
+- Workflow automation.
+- Database management.
+- Application deployment using Render.
+
+## Author
+
+Developed as a personal software development portfolio project.
