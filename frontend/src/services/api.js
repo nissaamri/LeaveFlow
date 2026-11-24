@@ -1,5 +1,4 @@
-const API_BASE_URL = '/api'
-
+const API_BASE_URL = import.meta.env.VITE_API_URL || '/api'
 // Authentication storage
 export const auth = {
   getToken: () => sessionStorage.getItem('access_token'),

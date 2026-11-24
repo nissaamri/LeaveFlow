@@ -1,4 +1,9 @@
+
+import os
+
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
 from app.routes.departments import router as departments_router
 from app.routes.leave_types import router as leave_types_router
 from app.routes.employees import router as employees_router
@@ -14,6 +19,20 @@ app = FastAPI(
     description="Employee Leave and Workforce Management System",
     version="1.0.0"
 )
+
+origins = os.getenv(
+    "CORS_ORIGINS",
+    "http://localhost:5173"
+).split(",")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[origin.strip() for origin in origins],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 app.include_router(departments_router)
 app.include_router(leave_types_router)
 app.include_router(employees_router)
@@ -23,6 +42,7 @@ app.include_router(approvals_router)
 app.include_router(public_holidays_router)
 app.include_router(audit_logs_router)
 app.include_router(auth_router)
+
 
 @app.get("/")
 def home():
